@@ -5,6 +5,16 @@ import { MainLayout } from './layouts/main-layout/main-layout';
 export const routes: Routes = [
     {
         path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
+    },
+    {
+        path: 'login',
+        loadComponent: () =>
+            import('./pages/auth/login-component/login-component').then((m) => m.LoginComponent)
+    },
+    {
+        path: 'main',
         component: MainLayout,
         children: [
             {
