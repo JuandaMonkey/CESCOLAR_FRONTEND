@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 // sidebar
 import { sideBarData } from '../../../core/data/sidebar.data';
 import { SideBarModel, SideBarItem } from '../../../core/models/sidebar.model';
@@ -19,6 +19,8 @@ export class SidebarLayout {
 
   sideBar: SideBarModel = sideBarData;
 
+  constructor(private router: Router) {}
+  
   manejarClick(item: SideBarItem): void {
     if (item.onClick === 'logout') {
       this.cerrarSesion();
@@ -26,6 +28,6 @@ export class SidebarLayout {
   }
   
   private cerrarSesion(): void {
-    console.log('Cerrar sesión (pendiente de conectar)');
+    this.router.navigateByUrl('/');
   } 
 }
