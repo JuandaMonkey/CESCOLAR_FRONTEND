@@ -7,17 +7,17 @@ export const sideBarData: SideBarModel = {
       items: [
         {
           text: 'PANEL',
-          icon: 'mdi mdi-view-dashboard',
+          icon: 'fa-solid fa-gauge-high',
           route: '/main/dashboard',
         },
         {
           text: 'ALUMNOS',
-          icon: 'mdi mdi-account-school',
+          icon: 'fa-solid fa-user-graduate',
           route: '/main/alumnos',
         },
         {
           text: 'CALIFICACIONES',
-          icon: 'mdi mdi-clipboard-text',
+          icon: 'fa-solid fa-clipboard-list',
           route: '/main/calificaciones',
         },
       ],
@@ -27,7 +27,7 @@ export const sideBarData: SideBarModel = {
       items: [
         {
           text: 'Salir',
-          icon: 'mdi mdi-logout',
+          icon: 'fa-solid fa-right-from-bracket',
           onClick: 'logout',
         },
       ],
