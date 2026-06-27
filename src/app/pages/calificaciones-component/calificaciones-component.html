@@ -76,3 +76,9 @@
     </tbody>
   </table>
 </div>
+
+<app-modal-boleta 
+  [isVisible]="mostrarModalBoleta" 
+  [alumno]="alumnoBoleta"
+  (onClose)="cerrarModalBoleta()">
+</app-modal-boleta>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ModalBoleta } from '../../shared/components/modal-boleta/modal-boleta';
 
 interface Alumno {
   nombre: string;
@@ -13,15 +14,33 @@ interface Alumno {
   promedio: number;
 }
 
+interface MateriaCalificacion {
+  nombre: string;
+  parcial1: number;
+  parcial2: number;
+  parcial3: number;
+  promedio: number;
+}
+
+interface AlumnoBoleta {
+  nombre: string;
+  matricula: string;
+  grupo: string;
+  materias: MateriaCalificacion[];
+}
+
 @Component({
   selector: 'app-calificaciones-component',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ModalBoleta],
   templateUrl: './calificaciones-component.html',
   styleUrl: './calificaciones-component.css',
 })
 export class CalificacionesComponent {
   grupoSeleccionado: string = '';
   materiaSeleccionada: string = '';
+  
+  mostrarModalBoleta: boolean = false;
+  alumnoBoleta: AlumnoBoleta | null = null;
   
   grupos: string[] = ['1° A', '1° B', '2° A', '2° B', '3° A', '3° B'];
   materias: string[] = ['Matemáticas', 'Español', 'Historia', 'Ciencias', 'Inglés'];
@@ -38,6 +57,26 @@ export class CalificacionesComponent {
       promedio: 7.2
     },
     {
+      nombre: 'Sofía Mendivil',
+      matricula: 'A-2026-001',
+      grupo: '3° A',
+      materia: 'Español',
+      parcial1: 8,
+      parcial2: 8.5,
+      parcial3: 9,
+      promedio: 8.5
+    },
+    {
+      nombre: 'Sofía Mendivil',
+      matricula: 'A-2026-001',
+      grupo: '3° A',
+      materia: 'Historia',
+      parcial1: 6,
+      parcial2: 7,
+      parcial3: 6.5,
+      promedio: 6.5
+    },
+    {
       nombre: 'Carlos Rodríguez',
       matricula: 'A-2026-002',
       grupo: '3° A',
@@ -46,6 +85,26 @@ export class CalificacionesComponent {
       parcial2: 10,
       parcial3: 9.5,
       promedio: 9.5
+    },
+    {
+      nombre: 'Carlos Rodríguez',
+      matricula: 'A-2026-002',
+      grupo: '3° A',
+      materia: 'Español',
+      parcial1: 8,
+      parcial2: 9,
+      parcial3: 8.5,
+      promedio: 8.5
+    },
+    {
+      nombre: 'Carlos Rodríguez',
+      matricula: 'A-2026-002',
+      grupo: '3° A',
+      materia: 'Ciencias',
+      parcial1: 9,
+      parcial2: 9,
+      parcial3: 10,
+      promedio: 9.3
     },
     {
       nombre: 'María González',
@@ -58,6 +117,16 @@ export class CalificacionesComponent {
       promedio: 5.3
     },
     {
+      nombre: 'María González',
+      matricula: 'A-2026-003',
+      grupo: '3° A',
+      materia: 'Español',
+      parcial1: 6,
+      parcial2: 6.5,
+      parcial3: 7,
+      promedio: 6.5
+    },
+    {
       nombre: 'Juan López',
       matricula: 'A-2026-004',
       grupo: '3° B',
@@ -68,6 +137,16 @@ export class CalificacionesComponent {
       promedio: 8.5
     },
     {
+      nombre: 'Juan López',
+      matricula: 'A-2026-004',
+      grupo: '3° B',
+      materia: 'Inglés',
+      parcial1: 7,
+      parcial2: 8,
+      parcial3: 7.5,
+      promedio: 7.5
+    },
+    {
       nombre: 'Ana Martínez',
       matricula: 'A-2026-005',
       grupo: '3° A',
@@ -76,6 +155,16 @@ export class CalificacionesComponent {
       parcial2: 9,
       parcial3: 9,
       promedio: 9.3
+    },
+    {
+      nombre: 'Ana Martínez',
+      matricula: 'A-2026-005',
+      grupo: '3° A',
+      materia: 'Matemáticas',
+      parcial1: 9,
+      parcial2: 8.5,
+      parcial3: 9,
+      promedio: 8.8
     }
   ];
 
@@ -99,7 +188,29 @@ export class CalificacionesComponent {
   }
 
   verBoleta(alumno: Alumno): void {
-    console.log('Ver boleta del alumno:', alumno.nombre);
-    // Aquí puedes agregar la lógica para mostrar la boleta del alumno
+    // Obtener todas las materias del alumno
+    const materiasDelAlumno = this.alumnos
+      .filter(a => a.matricula === alumno.matricula)
+      .map(a => ({
+        nombre: a.materia,
+        parcial1: a.parcial1,
+        parcial2: a.parcial2,
+        parcial3: a.parcial3,
+        promedio: a.promedio
+      }));
+
+    this.alumnoBoleta = {
+      nombre: alumno.nombre,
+      matricula: alumno.matricula,
+      grupo: alumno.grupo,
+      materias: materiasDelAlumno
+    };
+    
+    this.mostrarModalBoleta = true;
+  }
+
+  cerrarModalBoleta(): void {
+    this.mostrarModalBoleta = false;
+    this.alumnoBoleta = null;
   }
 }
