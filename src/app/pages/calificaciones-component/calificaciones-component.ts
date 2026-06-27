@@ -32,10 +32,10 @@ export class CalificacionesComponent {
       matricula: 'A-2026-001',
       grupo: '3° A',
       materia: 'Matemáticas',
-      parcial1: 8,
-      parcial2: 7,
-      parcial3: 7.5,
-      promedio: 7.5
+      parcial1: 7,
+      parcial2: 7.5,
+      parcial3: 7,
+      promedio: 7.2
     },
     {
       nombre: 'Carlos Rodríguez',
@@ -52,10 +52,10 @@ export class CalificacionesComponent {
       matricula: 'A-2026-003',
       grupo: '3° A',
       materia: 'Matemáticas',
-      parcial1: 6,
-      parcial2: 7,
-      parcial3: 0,
-      promedio: 0
+      parcial1: 5,
+      parcial2: 6,
+      parcial3: 5,
+      promedio: 5.3
     },
     {
       nombre: 'Juan López',
@@ -88,12 +88,14 @@ export class CalificacionesComponent {
   }
 
   calcularPromedio(alumno: Alumno): void {
+    // Si todos los parciales están vacíos (0), mostrar guion
+    if (alumno.parcial1 === 0 && alumno.parcial2 === 0 && alumno.parcial3 === 0) {
+      alumno.promedio = 0;
+      return;
+    }
+    
     const suma = alumno.parcial1 + alumno.parcial2 + alumno.parcial3;
     alumno.promedio = Math.round((suma / 3) * 10) / 10;
-    if (alumno.promedio === 0 && (alumno.parcial1 === 0 || alumno.parcial2 === 0 || alumno.parcial3 === 0)) {
-      // Si algún parcial está vacío (0), mostrar guion
-      alumno.promedio = 0;
-    }
   }
 
   verBoleta(alumno: Alumno): void {

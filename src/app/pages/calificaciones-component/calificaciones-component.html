@@ -62,7 +62,7 @@
         <td class="celda-promedio">
           <div 
             class="promedio-circle" 
-            [ngClass]="alumno.promedio === 0 ? 'promedio-sin-calificacion' : (alumno.promedio >= 7 ? 'promedio-aprobado' : 'promedio-reprobado')"
+            [ngClass]="alumno.promedio === 0 ? 'promedio-sin-calificacion' : (alumno.promedio < 6 ? 'promedio-reprobado' : (alumno.promedio < 8 ? 'promedio-advertencia' : 'promedio-aprobado'))"
           >
             {{ alumno.promedio === 0 ? '—' : alumno.promedio }}
           </div>
