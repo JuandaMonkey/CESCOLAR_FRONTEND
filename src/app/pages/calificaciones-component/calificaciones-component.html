@@ -27,7 +27,9 @@
     <tbody>
       <tr *ngFor="let alumno of alumnosFiltrados" class="fila-alumno">
         <td>
-          <strong>{{ alumno.nombre }} {{ alumno.matricula }} - {{ alumno.grupo }}</strong>
+          <strong>{{ alumno.nombre }}</strong>
+          <br>
+          <span>{{ alumno.matricula }} - {{ alumno.grupo }}</span>
         </td>
         <td class="celda-parcial">
           <input 
