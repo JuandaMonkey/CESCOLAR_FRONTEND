@@ -1,1 +1,31 @@
-<p>sidebar-layout works!</p>
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <span class="logo-text">EscolarFácil</span>
+    </div>
+  </div>
+  
+  <div class="user-info">
+    <div class="user-name">Lucia Reyes</div>
+    <div class="user-role">ADMINISTRADOR</div>
+  </div>
+  
+  <nav class="sidebar-nav">
+    <a class="nav-item" routerLink="/panel">
+      <span class="nav-icon">📊</span>
+      <span>Panel</span>
+    </a>
+    <a class="nav-item" routerLink="/alumnos">
+      <span class="nav-icon">👨‍🎓</span>
+      <span>Alumnos</span>
+    </a>
+    <a class="nav-item active" routerLink="/calificaciones">
+      <span class="nav-icon">📝</span>
+      <span>Calificaciones</span>
+    </a>
+  </nav>
+  
+  <div class="sidebar-footer">
+    <button class="logout-btn">Cerrar sesión</button>
+  </div>
+</aside>

@@ -1,0 +1,135 @@
+/* Estilos específicos del módulo de calificaciones */
+
+.celda-parcial input{
+  width: 60px;
+  height: 35px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  padding: 5px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: black;
+}
+
+.fila-alumno strong{ display: block; }
+.fila-alumno span{ font-size: 12px; color: var(--tinta-suave); }
+
+.celda-promedio{ display: flex; align-items: center; gap: 8px; }
+
+.calificaciones-container {
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f1ea;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  color: black;
+  font-size: 28px;
+}
+
+.module-code {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filters select {
+  padding: 8px 12px;
+  min-width: 150px;
+  border: 1px solid #bdc3c7;
+  background-color: #ffffff;
+  font-size: 14px;
+  border-radius: 4px;
+  color: #34495e;
+}
+
+.calificaciones-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.calificaciones-table th,
+.calificaciones-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ecf0f1;
+  color: #2c3e50;
+}
+
+.calificaciones-table th {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.calificaciones-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.calificaciones-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.celda-promedio .promedio-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #2c3e50;
+  background-color: #ecf0f1;
+  border: 2px solid #bdc3c7;
+  font-size: 14px;
+}
+
+.promedio-aprobado {
+  border-color: #2ecc71;
+  color: #2ecc71;
+}
+
+.promedio-reprobado {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.promedio-sin-calificacion {
+  border-color: #95a5a6;
+  color: #95a5a6;
+}
+
+.btn-ver-boleta {
+  padding: 8px 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-ver-boleta:hover {
+  background-color: #2980b9;
+}

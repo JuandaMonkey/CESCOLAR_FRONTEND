@@ -1,1 +1,76 @@
-<p>calificaciones-component works!</p>
+<div class="calificaciones-container">
+  <div class="module-code">MÓDULO - RF-06 / RF-07 / RF-08 / RF-09</div>
+  <div class="header">
+    <h1>Calificaciones</h1>
+    <div class="filters">
+      <select [(ngModel)]="grupoSeleccionado">
+        <option value="">Todos los grupos</option>
+        <option *ngFor="let grupo of grupos" [value]="grupo">{{ grupo }}</option>
+      </select>
+      <select [(ngModel)]="materiaSeleccionada">
+        <option value="">Todas las materias</option>
+        <option *ngFor="let materia of materias" [value]="materia">{{ materia }}</option>
+      </select>
+    </div>
+  </div>
+
+  <table class="calificaciones-table">
+    <thead>
+      <tr>
+        <th>Alumno</th>
+        <th>Parcial 1</th>
+        <th>Parcial 2</th>
+        <th>Parcial 3</th>
+        <th>Promedio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of alumnosFiltrados" class="fila-alumno">
+        <td>
+          <strong>{{ alumno.nombre }} {{ alumno.matricula }} - {{ alumno.grupo }}</strong>
+        </td>
+        <td class="celda-parcial">
+          <input 
+            type="number" 
+            [(ngModel)]="alumno.parcial1" 
+            min="0" 
+            max="10"
+            step="0.5"
+            (change)="calcularPromedio(alumno)"
+          >
+        </td>
+        <td class="celda-parcial">
+          <input 
+            type="number" 
+            [(ngModel)]="alumno.parcial2" 
+            min="0" 
+            max="10"
+            step="0.5"
+            (change)="calcularPromedio(alumno)"
+          >
+        </td>
+        <td class="celda-parcial">
+          <input 
+            type="number" 
+            [(ngModel)]="alumno.parcial3" 
+            min="0" 
+            max="10"
+            step="0.5"
+            (change)="calcularPromedio(alumno)"
+          >
+        </td>
+        <td class="celda-promedio">
+          <div 
+            class="promedio-circle" 
+            [ngClass]="alumno.promedio === 0 ? 'promedio-sin-calificacion' : (alumno.promedio >= 7 ? 'promedio-aprobado' : 'promedio-reprobado')"
+          >
+            {{ alumno.promedio === 0 ? '—' : alumno.promedio }}
+          </div>
+        </td>
+        <td>
+          <button class="btn-ver-boleta" (click)="verBoleta(alumno)">Ver boleta</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
