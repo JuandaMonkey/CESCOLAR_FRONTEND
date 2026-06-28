@@ -1,59 +1,83 @@
-# CESCOLARFRONTEND
+# CESCOLAR - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.0.
+Sistema de Control Escolar desarrollado con [Angular CLI](https://github.com/angular/angular-cli) v21.1.0 con soporte de Server-Side Rendering (SSR).
 
-## Development server
+## Descripción
 
-To start a local development server, run:
+CESCOLAR es una aplicación web para la gestión escolar que permite administrar alumnos, consultar calificaciones y generar boletas. El sistema cuenta con autenticación de usuarios y un panel de administración.
+
+## Estructura del Proyecto
+
+```
+src/
+├── app/
+│   ├── core/                        # Datos y modelos centrales
+│   │   ├── data/
+│   │   │   └── sidebar.data.ts
+│   │   └── models/
+│   │       └── sidebar.model.ts
+│   │
+│   ├── layouts/                     # Layouts de la aplicación
+│   │   └── main-layout/
+│   │       └── sidebar-layout/
+│   │
+│   ├── pages/                       # Páginas principales
+│   │   ├── admin/
+│   │   │   ├── alumnos-component/   # Gestión de alumnos
+│   │   │   └── dashboard-component/ # Panel de administración
+│   │   ├── auth/
+│   │   │   └── login-component/     # Inicio de sesión
+│   │   └── calificaciones-component/ # Consulta de calificaciones
+│   │
+│   └── shared/                      # Componentes reutilizables
+│       └── components/
+│           ├── modal-agregar-alumno/ # Modal para registrar alumnos
+│           └── modal-boleta/        # Modal para generar boletas
+│
+├── index.html
+├── main.ts
+├── main.server.ts
+├── server.ts
+└── styles.css
+```
+
+## Módulos
+
+| Módulo            | Descripción                                      |
+|-------------------|--------------------------------------------------|
+| **Login**         | Autenticación de usuarios                        |
+| **Dashboard**     | Panel principal de administración                |
+| **Alumnos**       | Registro y gestión de alumnos                    |
+| **Calificaciones**| Consulta y gestión de calificaciones             |
+| **Boleta**        | Generación de boletas de calificaciones          |
+
+## Requisitos Previos
+
+- [Node.js](https://nodejs.org/) (versión LTS recomendada)
+- [Angular CLI](https://angular.dev/tools/cli) v21.1.0+
+
+```bash
+npm install -g @angular/cli
+```
+
+## Instalación
+
+```bash
+git clone https://github.com/JuandaMonkey/CESCOLAR_FRONTEND.git
+```
+
+```bash
+cd CESCOLAR_FRONTEND
+```
+
+```bash
+npm install
+```
+
+## Servidor de Desarrollo
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Abre tu navegador en `http://localhost:4200/`. La aplicación se recarga automáticamente al modificar archivos.
