@@ -18,6 +18,7 @@
       <option *ngFor="let grupo of grupos" [value]="grupo">
         {{ grupo }}
       </option>
+    
     </select>
 
     <button class="btn-nuevo" (click)="abrirModalNuevo()">
@@ -65,4 +66,5 @@
   [isVisible]="mostrarModal"
   [alumno]="alumnoEditando"
   (onClose)="cerrarModal()"
-  (onSave)="guardarAlumno($event)"></app-modal-agregar-alumno>
+  (onSave)="guardarAlumno($event)"
+></app-modal-agregar-alumno>
