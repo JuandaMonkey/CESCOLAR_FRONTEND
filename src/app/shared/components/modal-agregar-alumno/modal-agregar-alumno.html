@@ -1,1 +1,42 @@
-<p>modal-agregar-alumno works!</p>
+<div class="modal-overlay" *ngIf="isVisible">
+  <div class="modal-caja">
+    <div class="modal-header">
+      <h2>{{ esEdicion ? 'Editar alumno' : 'Nuevo alumno' }}</h2>
+      <button class="close-btn" (click)="cerrar()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <form (ngSubmit)="guardar()">
+        <label for="campoMatricula">Matrícula</label>
+        <input class="input" id="campoMatricula" type="text" [(ngModel)]="matricula" name="matricula">
+
+        <label for="campoNombre">Nombre completo</label>
+        <input class="input" id="campoNombre" type="text" [(ngModel)]="nombre" name="nombre">
+
+        <div class="modal-fila">
+          <div>
+            <label for="campoGrupo">Grupo</label>
+            <input class="input" id="campoGrupo" type="text" [(ngModel)]="grupo" name="grupo" placeholder="3° A">
+          </div>
+          <div>
+            <label for="campoGrado">Grado</label>
+            <input class="input" id="campoGrado" type="text" [(ngModel)]="grado" name="grado" placeholder="3°">
+          </div>
+        </div>
+
+        <label for="campoTutor">Tutor</label>
+        <input class="input" id="campoTutor" type="text" [(ngModel)]="tutor" name="tutor">
+
+        <label for="campoAlergias">Alergias</label>
+        <input class="input" id="campoAlergias" type="text" [(ngModel)]="alergias" name="alergias" placeholder="Ninguna">
+
+        <p class="modal-error" *ngIf="error">{{ error }}</p>
+
+        <div class="modal-acciones">
+          <button type="button" class="btn-cancelar" (click)="cerrar()">Cancelar</button>
+          <button type="submit" class="btn-guardar">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
