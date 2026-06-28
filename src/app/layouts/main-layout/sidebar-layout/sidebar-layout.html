@@ -1,1 +1,44 @@
-<p>sidebar-layout works!</p>
+<aside class="sidebar">
+  <!-- brand -->
+  <div class="sidebar__brand">
+    <a routerLink="/main/dashboard" class="brand-link">
+      <span class="brand-link__sello"></span>
+      <span class="brand-link__name">CESCOLAR</span>
+    </a>
+  </div>
+
+  <!-- usuario -->
+  <div class="sidebar__usuario">
+    <div class="sidebar__usuario-nombre">{{ nombreUsuario }}</div>
+    <p class="sidebar__tagline">{{ rolUsuario }}</p>
+</div>
+
+  <!-- nav -->
+  <nav class="sidebar__nav">
+    @for (grupo of sideBar.groups; track grupo.text) {
+      <h4 class="nav-group-title">{{ grupo.text }}</h4>
+      <ul class="nav-list">
+        @for (item of grupo.items; track item.text) {
+          <li>
+            @if (item.route) {
+              <a [routerLink]="item.route" routerLinkActive="nav-item--active" [routerLinkActiveOptions]="{ exact: false }" class="nav-item">
+                @if (item.icon) {
+                  <i [class]="item.icon"></i>
+                }
+                <span>{{ item.text }}</span>
+              </a>
+            }
+            @if (item.onClick) {
+              <button class="footer-btn footer-btn--logout" (click)="manejarClick(item)">
+                @if (item.icon) {
+                  <i [class]="item.icon"></i>
+                }
+                <span>{{ item.text }}</span>
+              </button>
+            }
+          </li>
+        }
+      </ul>
+    }
+  </nav>
+</aside>

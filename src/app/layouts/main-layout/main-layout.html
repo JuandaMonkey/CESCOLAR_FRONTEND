@@ -1,1 +1,18 @@
-<p>main-layout works!</p>
+<div id="app" class="app app-content-full-height app-footer-fixed">
+    <!-- sidebar -->
+    <app-sidebar-layout></app-sidebar-layout>
+
+    <!-- content -->
+    <div id="content" class="app-content">
+        <!-- header -->
+        <div id="header" class="app-header">
+            <!-- header vacío o futuro top-menu -->
+        </div>
+
+        <!-- body -->
+        <div class="content-body" style="flex: 1; padding: 0; margin: 0; width: 100%;">
+            <!-- contenido de la página -->
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
