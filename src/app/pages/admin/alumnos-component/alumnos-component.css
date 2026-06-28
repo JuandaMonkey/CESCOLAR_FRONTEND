@@ -182,3 +182,67 @@
   margin-bottom: 4px;
 }
 
+/* ---------- Responsivo ---------- */ 
+@media (max-width: 720px) {
+  .alumnos-container {
+    padding: 16px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-select,
+  .btn-nuevo {
+    width: 100%;
+  }
+
+  .alumnos-table,
+  .alumnos-table thead,
+  .alumnos-table tbody,
+  .alumnos-table th,
+  .alumnos-table td,
+  .alumnos-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .alumnos-table thead {
+    display: none;
+  }
+
+  .alumnos-table tbody tr {
+    padding: 12px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .alumnos-table tbody tr td {
+    border-bottom: none;
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-align: right;
+  }
+
+  .alumnos-table tbody tr td::before {
+    content: attr(data-label);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--tinta-suave);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: left;
+  }
+
+  .acciones-fila {
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
