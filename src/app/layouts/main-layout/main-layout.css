@@ -9,7 +9,7 @@ body {
   display: flex;
   min-height: 100vh;
   width: 100%;
-  background: #f5f5f5;
+  background-color: var(--papel);
 }
 
 .app-content {
@@ -17,6 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 0;
 }
 
 /* header */
@@ -30,9 +31,11 @@ body {
 /* content */
 .content-body {
   flex: 1;
+  min-height: calc(100vh - 64px);
   padding: 24px;
-  overflow-y: auto;
-  background: #f5f5f5;
+  background-color: var(--papel);
+  display: flex;
+  flex-direction: column;
 }
 
 /* responsive */
