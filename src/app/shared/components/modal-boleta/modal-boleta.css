@@ -1,0 +1,233 @@
+:root{
+  --papel:        #F7F3EA;
+  --papel-alto:   #FFFFFF;
+  --tinta:        #23211D;
+  --tinta-suave:  #6B6357;
+  --linea:        #E2DACB;
+
+  --sello-verde:      #2F5D4F;
+  --sello-coral:      #C2603F;
+  --sello-mostaza:    #C99A3E;
+
+  --radio: 3px;
+
+  --fuente-display: 'Fraunces', serif;
+  --fuente-cuerpo:  'Inter', sans-serif;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(35, 33, 29, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.modal-boleta {
+  background-color: var(--papel-alto);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(35, 33, 29, 0.18);
+}
+
+.modal-header {
+  background-color: var(--tinta);
+  color: var(--papel);
+  padding: 20px 24px;
+  border-radius: var(--radio) var(--radio) 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-family: var(--fuente-display);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: rgba(247, 243, 234, 0.12);
+  border: 1px solid rgba(247, 243, 234, 0.22);
+  color: var(--papel);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 5px 11px;
+  border-radius: var(--radio);
+  transition: background 0.15s ease;
+  flex-shrink: 0;
+}
+
+.close-btn:hover {
+  background: rgba(247, 243, 234, 0.2);
+}
+
+.modal-body {
+  padding: 20px;
+  font-family: var(--fuente-cuerpo);
+}
+
+.alumno-info {
+  background-color: var(--papel);
+  padding: 16px;
+  border-radius: var(--radio);
+  margin-bottom: 20px;
+  border-left: 3px solid var(--sello-verde);
+}
+
+.alumno-info h3 {
+  margin: 0 0 10px 0;
+  font-family: var(--fuente-display);
+  color: var(--tinta);
+  font-size: 19px;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.alumno-info p {
+  margin: 6px 0;
+  color: var(--tinta-suave);
+  font-size: 13.5px;
+}
+
+.alumno-info .info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 8px;
+}
+
+.boleta-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+}
+
+.boleta-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.boleta-table th {
+  text-align: center;
+  font-family: var(--fuente-cuerpo);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--linea);
+  white-space: nowrap;
+  background: var(--papel);
+}
+
+.boleta-table th:first-child {
+  text-align: left;
+}
+
+.boleta-table td {
+  padding: 12px 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--linea);
+  color: var(--tinta);
+}
+
+.boleta-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+
+.boleta-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.boleta-table tbody tr:hover {
+  background-color: rgba(47, 93, 79, 0.04);
+}
+
+/* "Sellos" circulares, igual que en la versión HTML original */
+.sello-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  font-family: var(--fuente-cuerpo);
+  font-weight: 600;
+  font-size: 12.5px;
+  transform: rotate(-3deg);
+}
+
+.sello--aprobado{ color: var(--sello-verde); }
+.sello--advertencia{ color: var(--sello-mostaza); }
+.sello--reprobado{ color: var(--sello-coral); }
+
+.promedio-general {
+  background-color: var(--tinta);
+  color: var(--papel);
+  padding: 16px;
+  border-radius: var(--radio);
+  text-align: center;
+  font-family: var(--fuente-display);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 600px) {
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal-boleta {
+    max-width: 100%;
+    max-height: 92vh;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .modal-header {
+    padding: 16px 18px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .modal-header h2 {
+    font-size: 17px;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .alumno-info .info-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .promedio-general {
+    font-size: 16px;
+    padding: 14px;
+  }
+}

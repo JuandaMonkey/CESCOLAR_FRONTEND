@@ -1,1 +1,52 @@
-<p>modal-boleta works!</p>
+<div class="modal-overlay" *ngIf="isVisible">
+  <div class="modal-boleta">
+    <div class="modal-header">
+      <h2>Boleta de Calificaciones</h2>
+      <button class="close-btn" (click)="cerrarModal()">&times;</button>
+    </div>
+
+    <div class="modal-body" *ngIf="alumno">
+      <div class="alumno-info">
+        <h3>{{ alumno.nombre }}</h3>
+        <div class="info-row">
+          <p>Matrícula: {{ alumno.matricula }}</p>
+          <p>Grupo: {{ alumno.grupo }}</p>
+        </div>
+      </div>
+
+      <div class="boleta-table-wrapper">
+        <table class="boleta-table">
+          <thead>
+            <tr>
+              <th>Materia</th>
+              <th>Parcial 1</th>
+              <th>Parcial 2</th>
+              <th>Parcial 3</th>
+              <th>Promedio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let materia of alumno.materias">
+              <td>{{ materia.nombre }}</td>
+              <td>{{ materia.parcial1 }}</td>
+              <td>{{ materia.parcial2 }}</td>
+              <td>{{ materia.parcial3 }}</td>
+              <td>
+                <span
+                  class="sello-num"
+                  [ngClass]="materia.promedio < 6 ? 'sello--reprobado' : (materia.promedio < 8 ? 'sello--advertencia' : 'sello--aprobado')"
+                >
+                  {{ materia.promedio }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="promedio-general">
+        <strong>Promedio General: {{ getPromedioGeneral() }}</strong>
+      </div>
+    </div>
+  </div>
+</div>

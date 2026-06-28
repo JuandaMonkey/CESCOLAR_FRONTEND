@@ -1,1 +1,114 @@
-<p>calificaciones-component works!</p>
+<div class="calificaciones-container">
+  <div class="module-code"> main / calificaciones </div>
+  <div class="header">
+    <h1>Calificaciones</h1>
+    <div class="filters">
+      <select [(ngModel)]="grupoSeleccionado" (change)="resetPagina()">
+        <option value="">Todos los grupos</option>
+        <option *ngFor="let grupo of grupos" [value]="grupo">{{ grupo }}</option>
+      </select>
+      <select [(ngModel)]="materiaSeleccionada" (change)="resetPagina()">
+        <option value="">Todas las materias</option>
+        <option *ngFor="let materia of materias" [value]="materia">{{ materia }}</option>
+      </select>
+    </div>
+  </div>
+
+  <table class="calificaciones-table">
+    <thead>
+      <tr>
+        <th>Alumno</th>
+        <th>Parcial 1</th>
+        <th>Parcial 2</th>
+        <th>Parcial 3</th>
+        <th>Promedio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of alumnosPaginados" class="fila-alumno">
+        <td data-label="Alumno">
+          <strong>{{ alumno.nombre }}</strong>
+          <br>
+          <span>{{ alumno.matricula }} - {{ alumno.grupo }}</span>
+        </td>
+        <td class="celda-parcial" data-label="Parcial 1">
+          <input 
+            type="number" 
+            [(ngModel)]="alumno.parcial1" 
+            min="0" 
+            max="10"
+            step="0.5"
+            (change)="calcularPromedio(alumno)"
+          >
+        </td>
+        <td class="celda-parcial" data-label="Parcial 2">
+          <input 
+            type="number" 
+            [(ngModel)]="alumno.parcial2" 
+            min="0" 
+            max="10"
+            step="0.5"
+            (change)="calcularPromedio(alumno)"
+          >
+        </td>
+        <td class="celda-parcial" data-label="Parcial 3">
+          <input 
+            type="number" 
+            [(ngModel)]="alumno.parcial3" 
+            min="0" 
+            max="10"
+            step="0.5"
+            (change)="calcularPromedio(alumno)"
+          >
+        </td>
+        <td class="celda-promedio" data-label="Promedio">
+          <div 
+            class="promedio-circle" 
+            [ngClass]="alumno.promedio === 0 ? 'promedio-sin-calificacion' : (alumno.promedio < 6 ? 'promedio-reprobado' : (alumno.promedio < 8 ? 'promedio-advertencia' : 'promedio-aprobado'))"
+          >
+            {{ alumno.promedio === 0 ? '—' : alumno.promedio }}
+          </div>
+        </td>
+        <td data-label="Acciones">
+          <button class="btn-ver-boleta" (click)="verBoleta(alumno)">Ver boleta</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination" *ngIf="totalPaginas > 1">
+    <button 
+      class="pagination-btn" 
+      (click)="paginaAnterior()" 
+      [disabled]="paginaActual === 1"
+    >
+      Anterior
+    </button>
+    
+    <div class="pagination-numbers">
+      <button 
+        *ngFor="let pagina of getPaginas()" 
+        class="pagination-number"
+        [class.active]="pagina === paginaActual"
+        (click)="cambiarPagina(pagina)"
+      >
+        {{ pagina }}
+      </button>
+    </div>
+    
+    <button 
+      class="pagination-btn" 
+      (click)="paginaSiguiente()" 
+      [disabled]="paginaActual === totalPaginas"
+    >
+      Siguiente
+    </button>
+  </div>
+</div>
+
+<app-modal-boleta 
+  [isVisible]="mostrarModalBoleta" 
+  [alumno]="alumnoBoleta"
+  (onClose)="cerrarModalBoleta()">
+</app-modal-boleta>
