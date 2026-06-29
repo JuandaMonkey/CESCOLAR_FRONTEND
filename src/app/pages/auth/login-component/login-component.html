@@ -1,1 +1,46 @@
-<p>login-component works!</p>
+<!-- login.component.html -->
+<div class="page-bg">
+  <div class="card">
+    <div class="dot"></div>
+    <h1 class="title">EscolarFácil</h1>
+    <p class="subtitle">Inicia sesión para continuar</p>
+
+    <div class="form-group">
+      <label for="username">Usuario</label>
+      <input
+        id="username"
+        type="text"
+        placeholder="carlos, juan, alex o manuel"
+        [(ngModel)]="username"
+        name="username"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input
+        id="password"
+        type="password"
+        placeholder="••••••••"
+        [(ngModel)]="password"
+        name="password"
+      />
+    </div>
+
+    <p class="error-msg" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+    <button class="btn-entrar" (click)="login()">Entrar</button>
+
+    <div class="divider"></div>
+
+    <div class="demo-section">
+      <p class="demo-title">Cuentas de demostración (datos simulados):</p>
+      <ul>
+        <li><strong>carlos</strong> / 12345 — Administrador</li>
+        <li><strong>juan</strong> / 12345 — Docente</li>
+        <li><strong>alex</strong> / 12345 — Docente</li>
+        <li><strong>manuel</strong> / 12345 — Docente</li>
+      </ul>
+    </div>
+  </div>
+</div>

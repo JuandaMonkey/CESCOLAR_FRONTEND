@@ -14,6 +14,11 @@ export const routes: Routes = [
             import('./pages/auth/login-component/login-component').then((m) => m.LoginComponent)
     },
     {
+        path: 'admin',
+        redirectTo: 'main/dashboard',
+        pathMatch: 'full'
+    },
+    {
         path: 'main',
         component: MainLayout,
         children: [

@@ -1,1 +1,46 @@
-<p>dashboard-component works!</p>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+ 
+
+  <!-- Main content -->
+  <main class="main-content">
+    <p class="panel-label">PANEL PRINCIPAL</p>
+    <h2 class="bienvenida">
+      Hola de nuevo <span class="nombre-acento">, {{ usuario.nombre }}</span>
+    </h2>
+
+    <!-- Stats cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <p class="stat-num">{{ stats.alumnosActivos }}</p>
+        <p class="stat-label">ALUMNOS ACTIVOS</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-num">{{ stats.grupos }}</p>
+        <p class="stat-label">GRUPOS</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-num">{{ stats.promediosPendientes }}</p>
+        <p class="stat-label">PROMEDIOS PENDIENTES</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-num">{{ stats.promediosReprobatorios }}</p>
+        <p class="stat-label">PROMEDIOS REPROBATORIOS</p>
+      </div>
+    </div>
+
+    <!-- Info box -->
+    <div class="info-box">
+      <p class="info-title">Datos simulados</p>
+      <p class="info-desc">
+        Esta demo usa información de ejemplo guardada en tu navegador. Puedes restablecerla en cualquier momento.
+      </p>
+      <button class="btn-restablecer" (click)="restablecerDatos()">
+        Restablecer datos de ejemplo
+      </button>
+    </div>
+  </main>
+
+</div>

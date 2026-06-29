@@ -1,0 +1,245 @@
+/* dashboard.component.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 230px;
+  min-width: 230px;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 16px 20px;
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #b8932a;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.user-info {
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+
+.user-name {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.user-rol {
+  display: inline-block;
+  background-color: #2d2d2d;
+  color: #aaa;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+/* Nav */
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #aaa;
+  font-size: 0.875rem;
+  padding: 9px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav ul li:hover {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.nav ul li.activo {
+  background-color: #2d5c45;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.nav-dot {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Cerrar sesión */
+.btn-cerrar {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  color: #aaa;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-cerrar:hover {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+/* ── MAIN CONTENT ── */
+.main-content {
+  flex: 1;
+  background-color: #f0ebe0;
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.panel-label {
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  color: #888;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: -10px;
+}
+
+.bienvenida {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.nombre-acento {
+  color: #9a7a2e;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #999;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Info box */
+.info-box {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 960px;
+}
+
+.info-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.info-desc {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.btn-restablecer {
+  align-self: flex-start;
+  padding: 8px 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-restablecer:hover {
+  background-color: #f5f5f5;
+}
+
+/* Responsive básico */
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

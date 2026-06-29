@@ -1,0 +1,133 @@
+/* login.component.css */
+
+.page-bg {
+  min-height: 100vh;
+  background-color: #f0ebe0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 40px 48px 36px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #b8932a;
+  border-radius: 50%;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0 0 28px;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  color: #333;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #2d5c45;
+}
+
+.error-msg {
+  width: 100%;
+  color: #c0392b;
+  font-size: 0.82rem;
+  margin: -8px 0 10px;
+  text-align: left;
+}
+
+.btn-entrar {
+  width: 100%;
+  padding: 12px;
+  background-color: #2d5c45;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background-color 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.btn-entrar:hover {
+  background-color: #244d39;
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px dashed #d0ccc0;
+  margin: 24px 0 16px;
+}
+
+.demo-section {
+  width: 100%;
+}
+
+.demo-title {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 0 0 8px;
+}
+
+.demo-section ul {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 0;
+}
+
+.demo-section ul li {
+  font-size: 0.82rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.demo-section ul li strong {
+  color: #333;
+}
